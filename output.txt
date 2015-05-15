@@ -1,0 +1,58 @@
+Moment(f1 = v1, f2 <= v3).Item(f3 > v4).limit(10)
+
+[ ["Moment", "f1 = v1, f2 <= v3", nil],
+  ["Item", "f3 > v4", nil],
+  ["limit", "10", nil]
+]
+
+- Moment
+  -
+    - f1
+      =
+      v1
+    - f2
+      <=
+      v3
+  nil
+
+
+
+[
+  { :entity=> "Moment",
+    :conditions=> [
+      ["f1", "=", "v1"], 
+      ["f2", "<=", "v3"]
+    ],
+    :fields=>nil
+  },
+  { :entity=>"Item", 
+    :conditions=> [ 
+      ["f3", ">", "v4"]
+    ],
+    :fields=>nil
+  },
+  { :directive=> "limit", 
+    :params=> ["10"] 
+  }
+]
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Moment()[f1, f2].Item(f3 != v4, f6 = nil)[f3]
+
+[ ["Moment", "", "f1, f2"], 
+  ["Item", "f3 != v4, f6 = nil", "f3"]
+]
+
+[ {:entity=>"Moment", 
+   :conditions=>[], 
+   :fields=>[ "f1", 
+              "f2"
+            ]
+  },
+ {:entity=>"Item",
+  :conditions=>[["f3", "!=", "v4"], ["f6", "=", "nil"]],
+  :fields=>["f3"]}]
+
+
